@@ -25,6 +25,20 @@ client.println("Host: 192.168.254.108");
 
 <--- phpMyAdmin SIDE --->
 
+On SQL use this command:
+
+-- to create the sensor database
+
+CREATE TABLE your_table_name (
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    humidity FLOAT NULL DEFAULT NULL,
+    temperature FLOAT NULL DEFAULT NULL,
+    mq2Value FLOAT NULL DEFAULT NULL,
+    waterLevel FLOAT NULL DEFAULT NULL,
+    timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
 For each of the sensors database, the structure should be like:
     Name            Type            Null            Default             Extra            
     id              bigint(20)      No              None                AUTO_INCREMENT
@@ -33,6 +47,17 @@ For each of the sensors database, the structure should be like:
     mq2Value        float           Yes             Null
     waterLevel      float           Yes             Null
     timestamp       timestamp       No              Current_timestamp
+
+
+-- to create the account database
+
+CREATE TABLE account (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(10) NOT NULL,
+    PRIMARY KEY (id)
+);
 
 For the account database, the structure should be like:
     Name            Type            Null            Default             Extra            
